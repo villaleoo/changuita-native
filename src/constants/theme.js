@@ -1,139 +1,202 @@
 import { StyleSheet } from "react-native";
 
-export const gray= "#D3D3D3";
-export const black="#000000";
-export const white = "#FFFFFF";
-export const yellow= "#D6CB30";
-export const lightYellow='#F0EED0';
-export const red='#E22336';
-export const systemColorButton="#075985";
+const palette= {
+    gray:'#D3D3D3',
+    black:'#000000',
+    white:'#ffffff',
 
-export const bold='bold';
-export const normal='normal';
+    primary:'#ffc300',
+    light:'#ffd95c',
+    dark:'#A37D00',
 
-export const normalText=14;
-export const boldText=18;
-export const smallText=10;
+    error:'#E22336',
+    system:'#075985',
 
-export const center= 'center';
-export const left='left'
-export const between='space-between'
-export const around='space-around'
-export const row='row'
+}
 
-export const flexProp=StyleSheet.create({
-    flexCenterCenter:{
-        justifyContent:center,
-        alignItems:center
+const textSize= {
+    s:10,
+    m:15,
+    xl:18
+}
+
+const display= {
+    between:'space-between',
+    around:'space-around',
+    evenly:'space-evenly',
+    row:'row'
+}
+
+const spaces= {
+    s:'2%',
+    m:'5%',
+    l:'10%'
+}
+
+
+
+//falta sizing (dimensiones height,width,viewport ....)
+
+//engorroso hacer paddings y demas spacing de esta manera
+export const SPACE_STYLES = StyleSheet.create({
+    mt_s:{
+        marginTop:spaces.s
     },
-    flexCenter:{
-        flex:1,
-        justifyContent:center
+    mt_m:{
+        marginTop:spaces.m
     },
-    flexRow:{
-        flexDirection: row,
-        justifyContent:center
+    mt_l:{
+        marginTop:spaces.l
     },
-    flexBetween:{
-        justifyContent:between,
+    mb_s:{
+        marginBottom:spaces.s
     },
-    flexRowAround:{
-       flexDirection:row,
-       justifyContent:around,
+    mb_m:{
+        marginBottom:spaces.m
+    },
+    mb_l:{
+        marginBottom:spaces.l
+    },
+    ml_s:{
+        marginLeft:spaces.s
+    },
+    ml_m:{
+        marginLeft:spaces.m
+    },
+    ml_l:{
+        marginLeft:spaces.l
+    },
+    mr_s:{
+        marginRight:spaces.s
+    },
+    mr_m:{
+        marginRight:spaces.m
+    },
+    mr_l:{
+        marginRight:spaces.l
+    },
+    mx:{
+        marginHorizontal:spaces.s
+    },
+    my:{
+        marginVertical:spaces.s
     }
 })
 
+
+export const DISPLAY_STYLES=StyleSheet.create({
+    d_center:{
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    f_row:{
+        flexDirection: display.row,
+    },
+    j_center:{
+        justifyContent:'center',
+    },
+    j_between:{
+        justifyContent:display.between,
+    },
+    j_around:{
+        justifyContent:display.around,
+    },
+    j_evenly:{
+        justifyContent:display.evenly,
+    },
+    a_center:{
+        alignItems:'center',
+    }
+})
+
+
+export const BACKGROUND_STYLES = StyleSheet.create({
+    bg_black:{
+        backgroundColor:palette.black,
+    },
+    bg_primary:{
+        backgroundColor:palette.primary,
+    },
+    bg_gray:{
+        backgroundColor:palette.gray,
+    },
+    bg_light:{
+        backgroundColor:palette.light,
+    }
+})
+
+export const TEXT_STYLES = StyleSheet.create({
+    text_bold:{
+        fontWeight:'bold',
+    },
+    text_s:{
+        fontWeight:textSize.s,
+    },
+    text_m:{
+        fontWeight:'normal',
+        fontSize:textSize.m,
+    },
+    text_xl:{
+        fontSize:textSize.xl,
+    },
+    text_white:{
+        color:palette.white,
+    },
+    text_black:{
+        color:palette.black,
+    },
+    text_error:{
+        color:palette.error,
+    },
+    text_center:{
+        textAlign:'center',
+    },
+    text_left:{
+        textAlign:'left',
+    },
+    toUpper:{
+        textTransform:'uppercase',
+    },
+    toCap:{
+        textTransform:'capitalize',
+    },
+    toLower:{
+        textTransform:'lowercase',
+    },
+    underline:{
+        textDecorationLine:'underline',
+    }
+})
+
+//estos componentes refac
 const touchableSystemOpacity = {
-    ...flexProp.flexCenterCenter,
+    ...DISPLAY_STYLES.d_center,
     height:50,
     borderRadius:50,
     marginTop:10,
     marginBottom:15,
-    backgroundColor:systemColorButton,
+    backgroundColor:palette.system,
     paddingHorizontal:20,
-    color:white,
+    color:palette.white,
 }
 
-
-export const textColor = StyleSheet.create({
-    textBlack:{
-        color:black,
-    },
-    textGray:{
-        color:gray,
-    },
-    textWhite:{
-        color:white,
-    },
-    textRed:{
-        color:red,
-    }
-})
-
-export const backColor = StyleSheet.create({
-    backBlack:{
-        backgroundColor:black,
-    },
-    backYellow:{
-        backgroundColor:yellow,
-    },
-    backGray:{
-        backgroundColor:gray,
-    },
-    backLightYellow:{
-        backgroundColor:lightYellow,
-    }
-})
-
-export const textStyle = StyleSheet.create({
-    textBold:{
-        fontWeight:bold,
-        fontSize:boldText,
-    },
-    textPlain:{
-        fontWeight:normal,
-        fontSize:normalText,
-    },
-    textSmall:{
-        fontWeight:smallText,
-    },
-    textSmallError:{
-        fontWeight:smallText,
-        color:red,
-    },
-    textError:{
-        fontWeight:normal,
-        color:red,
-    }
-})
-
-export const textAlign = StyleSheet.create({
-    center:{
-        textAlign:center,
-    },
-    left:{
-        textAlign:left,
-    }
-})
-
-
-export const styledComponents=StyleSheet.create({
+export const COMPONENTS_STYLES=StyleSheet.create({
     inputDefault:{
         borderBottomWidth: 2,
-        borderBottomColor: gray
+        borderBottomColor: palette.gray,
     },
     touchableSystemOpacity:{
-       ...touchableSystemOpacity
+       ...touchableSystemOpacity,
     },
     touchableSystemLight:{
         ...touchableSystemOpacity,
-        backgroundColor:gray,
-        color:systemColorButton
+        backgroundColor:palette.gray,
+        color:palette.system,
     },
     textSystem:{
-        fontSize:normalText,
+        fontSize:textSize.m,
         fontWeight:500,
-        color:white,
+        color:palette.white,
     }
     
 })

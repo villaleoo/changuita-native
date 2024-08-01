@@ -14,7 +14,6 @@ export default function Layout(){
     return(
         <SafeAreaProvider>
             <View style={styles.area}>
-                <Text>asdasdasd layout</Text>
                 <Slot />
             </View>
         </SafeAreaProvider>

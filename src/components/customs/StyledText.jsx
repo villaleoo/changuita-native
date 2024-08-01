@@ -1,42 +1,12 @@
 import react from "react";
-import { StyleSheet, Text } from "react-native";
-
-
-const styles = StyleSheet.create({
-    black:{
-        color:'black'
-    },
-    bold:{
-        fontWeight:'bold'
-    },
-    blue:{
-        color:'blue'
-    },
-    big:{
-        fontSize:18,
-    },
-    small:{
-        fontSize:10
-    },
-    medium:{
-        fontSize:14
-    },
-    error:{
-        color:'red',
-    },
-    center:{
-        textAlign:'center'
-    },
-    
-
-})
-
+import { Text } from "react-native";
+import { TEXT_STYLES} from "../../constants/theme";
 
 export default function StyledText({children, ...props}){
-    const textStyles= Object.keys(props).map((prop) => styles[prop]);
-
+    const textStyles= Object.keys(props).map((prop) => TEXT_STYLES[prop]);
+  
     return(
-        <Text style={textStyles}>
+        <Text style={[textStyles, props]}>
             {children}
         </Text>
     )
