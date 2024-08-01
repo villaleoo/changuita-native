@@ -1,11 +1,20 @@
 {
   "expo": {
+    "plugins":[
+      [
+        "expo-router",
+        {
+          "root":"src/app"
+        }
+      ]
+    ],
     "name": "changuita-native",
     "slug": "changuita-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "changuita",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
